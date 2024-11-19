@@ -19,7 +19,7 @@ const App: React.FC = () => {
 
   const fetchContent = async (language: string) => {
     try {
-      const response = await axios.get<Content>(`https://your-cloudfront-domain/${language}/content.json`);
+      const response = await axios.get<Content>(`https://${process.env.CLOUDFRONT_DOMAIN}/${language}/content.json`);
       setContent(response.data);
     } catch (error) {
       console.error('Error fetching content:', error);
